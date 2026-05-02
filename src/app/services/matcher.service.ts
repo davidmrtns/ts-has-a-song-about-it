@@ -1,27 +1,42 @@
 import { Injectable } from '@angular/core';
-import { abbreviations, dictionary } from '../dictionaries/dictionaries';
+import { dictionary } from '../dictionaries/dictionaries';
 import { SONGS } from '../data/songs';
 import { MatchResult } from '../types/types';
 import { SONG_SCENARIOS } from '../data/song-scenarios';
+import { synonyms } from '../dictionaries/synonyms';
+import { abbreviations } from '../dictionaries/abbreviations';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Matcher {
   private preprocess(input: string): { normalizedInput: string; normalizedTokens: string[] } {
+    const normalized = input
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '');
+
+    const tokens = normalized.split(/\s+/).map((token) => {
+      const expanded = abbreviations[token] || token;
+      const translated = synonyms[expanded] || expanded;
+      return translated;
+    });
+
     return {
-      normalizedInput: input.toLowerCase(),
-      normalizedTokens: input
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .split(/\s+/)
-        .map((token) => abbreviations[token] || token),
+      normalizedInput: tokens.join(' '), // reconstructs the input
+      normalizedTokens: tokens,
     };
   }
 
-  match(input: string): MatchResult | null {
+  private findSong(title: string) {
+    return SONGS.find((song) => song.title === title) || null;
+  }
+
+  public match(input: string): MatchResult | null {
     const { normalizedInput, normalizedTokens } = this.preprocess(input);
+
+    console.log('Normalized Input:', normalizedInput);
+    console.log('Normalized Tokens:', normalizedTokens);
 
     const detectedTags = new Set<string>();
 
@@ -72,9 +87,5 @@ export class Matcher {
     }
 
     return bestMatch;
-  }
-
-  findSong(title: string) {
-    return SONGS.find((song) => song.title === title) || null;
   }
 }
