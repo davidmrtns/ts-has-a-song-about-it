@@ -1,0 +1,454 @@
+// ─── Fonts ────────────────────────────────────────────────────────────────────
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;1,400&family=Dancing+Script:wght@600&display=swap');
+
+// ─── Variables ────────────────────────────────────────────────────────────────
+$ts-cream: #faf6ef;
+$ts-parchment: #f0e8d6;
+$ts-gold: #b8943f;
+$ts-gold-light: #d4aa5a;
+$ts-red: #8b1a1a;
+$ts-red-muted: #a63232;
+$ts-ink: #2c1f14;
+$ts-ink-muted: #6b4f3a;
+$ts-border: rgba(184, 148, 63, 0.35);
+
+// ─── Wrapper ──────────────────────────────────────────────────────────────────
+.ts-wrapper {
+  min-height: 100vh;
+  background-color: $ts-cream;
+  background-image:
+    radial-gradient(ellipse at 20% 10%, rgba(184, 148, 63, 0.08) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 90%, rgba(139, 26, 26, 0.06) 0%, transparent 55%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  font-family: 'Lora', Georgia, serif;
+  color: $ts-ink;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1.5rem 2rem;
+}
+
+// ─── Header ───────────────────────────────────────────────────────────────────
+.ts-header {
+  text-align: center;
+  max-width: 560px;
+  width: 100%;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.ts-sparkle {
+  position: absolute;
+  color: $ts-gold;
+  font-size: 1rem;
+  opacity: 0.7;
+  animation: sparkle-float 4s ease-in-out infinite;
+
+  &--1 {
+    top: 0;
+    left: 5%;
+    animation-delay: 0s;
+    font-size: 0.7rem;
+  }
+  &--2 {
+    top: 20px;
+    right: 8%;
+    animation-delay: 1.3s;
+    font-size: 1rem;
+  }
+  &--3 {
+    top: 55px;
+    left: 15%;
+    animation-delay: 2.6s;
+    font-size: 0.55rem;
+  }
+}
+
+@keyframes sparkle-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-6px) rotate(20deg);
+    opacity: 0.9;
+  }
+}
+
+.ts-era-label {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.1rem;
+  color: $ts-gold;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.ts-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.8rem, 8vw, 4.5rem);
+  font-weight: 700;
+  font-style: italic;
+  color: $ts-red;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.6rem;
+  text-shadow: 2px 2px 0 rgba(139, 26, 26, 0.1);
+}
+
+.ts-subtitle {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1.75rem;
+  color: $ts-ink-muted;
+  margin: 0 0 1.5rem;
+  letter-spacing: 0.01em;
+}
+
+.ts-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: $ts-gold;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, $ts-gold-light, transparent);
+  }
+}
+
+// ─── Main ─────────────────────────────────────────────────────────────────────
+.ts-main {
+  width: 100%;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+// ─── Form ─────────────────────────────────────────────────────────────────────
+.ts-form {
+  background: rgba(255, 252, 245, 0.8);
+  border: 1px solid $ts-border;
+  border-radius: 2px;
+  padding: 2rem 2.25rem;
+  box-shadow:
+    0 1px 0 rgba(184, 148, 63, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  position: relative;
+
+  // Scrapbook corner tape effect
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 42px;
+    height: 14px;
+    background: rgba(212, 170, 90, 0.3);
+    border: 1px solid rgba(184, 148, 63, 0.25);
+    border-radius: 1px;
+  }
+  &::before {
+    top: -7px;
+    left: 24px;
+    transform: rotate(-2deg);
+  }
+  &::after {
+    top: -7px;
+    right: 24px;
+    transform: rotate(2deg);
+  }
+}
+
+.ts-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.5rem;
+}
+
+.ts-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: $ts-ink;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.ts-label-hint {
+  font-family: 'Dancing Script', cursive;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: $ts-gold;
+  letter-spacing: 0.02em;
+}
+
+.ts-textarea {
+  width: 100%;
+  padding: 0.9rem 1rem;
+  background: $ts-cream;
+  border: 1px solid $ts-border;
+  border-radius: 2px;
+  font-family: 'Lora', serif;
+  font-size: 0.95rem;
+  color: $ts-ink;
+  line-height: 1.7;
+  resize: vertical;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+
+  &::placeholder {
+    color: rgba(107, 79, 58, 0.45);
+    font-style: italic;
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $ts-gold;
+    box-shadow: 0 0 0 3px rgba(184, 148, 63, 0.12);
+  }
+}
+
+.ts-error {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  color: $ts-red-muted;
+  font-style: italic;
+}
+
+.ts-error-icon {
+  font-size: 0.6rem;
+  color: $ts-gold;
+}
+
+// ─── Submit Button ────────────────────────────────────────────────────────────
+.ts-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  width: 100%;
+  padding: 0.85rem 2rem;
+  background: $ts-red;
+  color: $ts-cream;
+  border: none;
+  border-radius: 2px;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.1s ease,
+    box-shadow 0.2s ease;
+  box-shadow:
+    0 3px 0 rgba(107, 15, 15, 0.4),
+    0 6px 16px rgba(139, 26, 26, 0.2);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  &:hover {
+    background: $ts-red-muted;
+    transform: translateY(-1px);
+    box-shadow:
+      0 4px 0 rgba(107, 15, 15, 0.4),
+      0 10px 20px rgba(139, 26, 26, 0.25);
+  }
+
+  &:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 0 rgba(107, 15, 15, 0.4);
+  }
+}
+
+.ts-btn-icon {
+  font-size: 1.1rem;
+  opacity: 0.85;
+}
+
+// ─── Result ───────────────────────────────────────────────────────────────────
+.ts-result {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ts-match {
+  background: rgba(255, 252, 245, 0.85);
+  border: 1px solid $ts-border;
+  border-radius: 2px;
+  padding: 2.25rem 2.25rem 1.75rem;
+  text-align: center;
+  position: relative;
+  box-shadow:
+    0 1px 0 rgba(184, 148, 63, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+  // Bottom corner tapes
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 36px;
+    height: 12px;
+    background: rgba(212, 170, 90, 0.28);
+    border: 1px solid rgba(184, 148, 63, 0.22);
+    border-radius: 1px;
+  }
+  &::before {
+    bottom: -6px;
+    left: 20px;
+    transform: rotate(1.5deg);
+  }
+  &::after {
+    bottom: -6px;
+    right: 20px;
+    transform: rotate(-1.5deg);
+  }
+}
+
+.ts-match-label {
+  font-family: 'Dancing Script', cursive;
+  font-size: 0.9rem;
+  color: $ts-gold;
+  letter-spacing: 0.06em;
+  margin-bottom: 1.25rem;
+}
+
+.ts-vinyl {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #2c1f14 20%, #1a1008 50%, #2c1f14 100%);
+  border: 3px solid $ts-red;
+  margin: 0 auto 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: vinyl-spin 6s linear infinite;
+  box-shadow: 0 4px 16px rgba(139, 26, 26, 0.3);
+}
+
+.ts-vinyl-inner {
+  color: $ts-gold-light;
+  font-size: 1.4rem;
+}
+
+@keyframes vinyl-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ts-song-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 5vw, 2.1rem);
+  font-weight: 700;
+  font-style: italic;
+  color: $ts-red;
+  margin: 0 0 1.25rem;
+  line-height: 1.2;
+}
+
+.ts-quote {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: $ts-ink-muted;
+  line-height: 1.75;
+  margin: 0 0 1.25rem;
+  padding: 0 0.5rem;
+  border: none;
+  position: relative;
+}
+
+.ts-quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: $ts-gold;
+  line-height: 0;
+  vertical-align: -0.35em;
+  opacity: 0.7;
+}
+
+.ts-match-footer {
+  font-family: 'Dancing Script', cursive;
+  font-size: 0.85rem;
+  color: $ts-gold;
+  letter-spacing: 0.08em;
+  margin-top: 0.5rem;
+}
+
+// ─── No Match ─────────────────────────────────────────────────────────────────
+.ts-no-match {
+  text-align: center;
+  padding: 2rem;
+  border: 1px dashed $ts-border;
+  border-radius: 2px;
+
+  p {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: $ts-ink-muted;
+    font-size: 1rem;
+    margin: 0.75rem 0 0;
+  }
+}
+
+.ts-no-match-icon {
+  color: $ts-gold;
+  font-size: 1.25rem;
+  opacity: 0.5;
+}
+
+// ─── Footer ───────────────────────────────────────────────────────────────────
+.ts-footer {
+  margin-top: 3rem;
+  font-family: 'Dancing Script', cursive;
+  font-size: 0.8rem;
+  color: rgba(107, 79, 58, 0.5);
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+// ─── Responsive ───────────────────────────────────────────────────────────────
+@media (max-width: 480px) {
+  .ts-wrapper {
+    padding: 2rem 1rem 1.5rem;
+  }
+
+  .ts-form,
+  .ts-match {
+    padding: 1.5rem 1.25rem;
+  }
+}

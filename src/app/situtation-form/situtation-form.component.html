@@ -1,21 +1,72 @@
-<form [formGroup]="situationForm" (ngSubmit)="onSubmit()">
-  <div class="form-group">
-    <label for="situation">Situation</label>
-    <textarea id="situation" formControlName="situation" class="form-control"></textarea>
-    @if (situation?.invalid && situation?.touched) {
-      <div class="text-danger">Situation is required.</div>
-    }
-  </div>
+<div class="ts-wrapper">
+  <header class="ts-header">
+    <div class="ts-sparkle ts-sparkle--1">✦</div>
+    <div class="ts-sparkle ts-sparkle--2">✦</div>
+    <div class="ts-sparkle ts-sparkle--3">✦</div>
+    <h1 class="ts-title">Taylor Swift</h1>
+    <p class="ts-subtitle">has a song about it.</p>
+    <div class="ts-divider">
+      <span>✦ ✦ ✦</span>
+    </div>
+  </header>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+  <main class="ts-main">
+    <form [formGroup]="situationForm" (ngSubmit)="onSubmit()" class="ts-form">
+      <div class="ts-form-group">
+        <label for="situation" class="ts-label">
+          What's your situation?
+          <span class="ts-label-hint">be honest, she already wrote about it</span>
+        </label>
+        <textarea
+          id="situation"
+          formControlName="situation"
+          class="ts-textarea"
+          placeholder="e.g. I drove past my ex's street at midnight just to see if the lights were on..."
+          rows="4"
+        ></textarea>
+        @if (situation?.invalid && situation?.touched) {
+          <div class="ts-error">
+            <span class="ts-error-icon">✦</span>
+            @if (situation?.errors?.['required']) {
+              Let's get started — fill out that blank space.
+            } @else {
+              Don't be shy — spill the tea.
+            }
+          </div>
+        }
+      </div>
 
-<div>
-  <h2>Match Result</h2>
-  @if (matchResult) {
-    <p><strong>Song:</strong> {{ matchResult.song.title }}</p>
-    <p><strong>Quote:</strong> {{ matchResult.quote }}</p>
-  } @else {
-    <p>No match found.</p>
-  }
+      <button type="submit" class="ts-btn">
+        <span class="ts-btn-text">Find My Song</span>
+        <span class="ts-btn-icon">♪</span>
+      </button>
+    </form>
+
+    <div class="ts-result" [class.ts-result--visible]="matchResult !== undefined">
+      @if (matchResult) {
+        <div class="ts-match">
+          <div class="ts-match-label">she wrote this for you</div>
+          <div class="ts-vinyl">
+            <div class="ts-vinyl-inner">♪</div>
+          </div>
+          <h2 class="ts-song-title">{{ matchResult.song.title }}</h2>
+          <blockquote class="ts-quote">
+            <span class="ts-quote-mark">"</span>
+            {{ matchResult.quote }}
+            <span class="ts-quote-mark">"</span>
+          </blockquote>
+          <div class="ts-match-footer">told you so ✦</div>
+        </div>
+      } @else {
+        <div class="ts-no-match">
+          <div class="ts-no-match-icon">✦</div>
+          <p>No match found — but maybe she just hasn't written it <em>yet.</em></p>
+        </div>
+      }
+    </div>
+  </main>
+
+  <footer class="ts-footer">
+    <span>a tribute, not affiliated ✦ swifties only</span>
+  </footer>
 </div>
