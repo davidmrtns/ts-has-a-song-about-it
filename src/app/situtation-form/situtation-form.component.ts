@@ -11,7 +11,7 @@ import { MatchResult } from '../types/types';
 })
 export class SitutationForm {
   situationForm!: FormGroup;
-  matchResult: MatchResult | null = null;
+  matchResult?: MatchResult | null = undefined;
 
   constructor(
     private fb: FormBuilder,

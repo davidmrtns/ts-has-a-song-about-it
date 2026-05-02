@@ -1,39 +1,40 @@
-import { Album, Song } from '../types/types';
+import { AlbumTitle, Song } from '../types/types';
+import { ALBUMS } from './albums';
 
 export const SONGS: Song[] = [
   {
     title: 'Love Story',
-    album: Album.FEARLESS,
+    album: ALBUMS['Fearless'],
     tags: ['love', 'romance', 'fairytale'],
   },
   {
     title: 'You Belong With Me',
-    album: Album.FEARLESS,
+    album: ALBUMS['Fearless'],
     tags: ['love', 'heartbreak', 'unrequited'],
   },
   {
     title: 'The Smallest Man Who Ever Lived',
-    album: Album.THE_TORTURED_POETS_DEPARTMENT,
+    album: ALBUMS['The Tortured Poets Department'],
     tags: ['cheating', 'heartbreak'],
   },
   {
     title: 'Blank Space',
-    album: Album.NINETEEN_EIGHTY_NINE,
+    album: ALBUMS['1989'],
     tags: ['love', 'satire', 'media'],
   },
   {
     title: 'Shake It Off',
-    album: Album.NINETEEN_EIGHTY_NINE,
+    album: ALBUMS['1989'],
     tags: ['self-empowerment', 'positivity', 'dance'],
   },
   {
     title: 'All Too Well',
-    album: Album.RED,
+    album: ALBUMS['Red'],
     tags: ['heartbreak', 'cheating'],
   },
   {
     title: 'Foolish One',
-    album: Album.SPEAK_NOW,
+    album: ALBUMS['Speak Now'],
     tags: ['unrequited', 'yearning', 'waiting', 'idealization', 'delusion', 'confession'],
   },
 ];

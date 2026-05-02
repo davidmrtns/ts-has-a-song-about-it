@@ -1,6 +1,6 @@
 import { Tag } from '../dictionaries/tags';
 
-export enum Album {
+export enum AlbumTitle {
   DEBUT = 'Taylor Swift',
   FEARLESS = 'Fearless',
   SPEAK_NOW = 'Speak Now',
@@ -13,6 +13,11 @@ export enum Album {
   MIDNIGHTS = 'Midnights',
   THE_TORTURED_POETS_DEPARTMENT = 'The Tortured Poets Department',
   THE_LIFE_OF_A_SHOWGIRL = 'The Life of a Showgirl',
+}
+
+export interface Album {
+  title: AlbumTitle;
+  artwork: string;
 }
 
 export interface Song {

@@ -346,14 +346,39 @@ $ts-border: rgba(184, 148, 63, 0.35);
   width: 72px;
   height: 72px;
   border-radius: 50%;
-  background: radial-gradient(circle at center, #2c1f14 20%, #1a1008 50%, #2c1f14 100%);
+  // vinyl groove rings via radial-gradient
+  background: radial-gradient(
+    circle at center,
+    #1a1008 0%,
+    #1a1008 22%,
+    #2c1f14 24%,
+    #2c1f14 36%,
+    #1a1008 38%,
+    #1a1008 50%,
+    #2c1f14 52%,
+    #2c1f14 62%,
+    #1a1008 64%
+  );
   border: 3px solid $ts-red;
-  margin: 0 auto 1.25rem;
+  margin: 0 auto 1.1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   animation: vinyl-spin 6s linear infinite;
-  box-shadow: 0 4px 16px rgba(139, 26, 26, 0.3);
+  box-shadow: 0 4px 14px rgba(139, 26, 26, 0.28);
+  position: relative;
+  overflow: hidden;
+}
+
+.ts-album-artwork {
+  width: 76%;
+  height: 76%;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .ts-vinyl-inner {
@@ -378,6 +403,10 @@ $ts-border: rgba(184, 148, 63, 0.35);
   color: $ts-red;
   margin: 0 0 1.25rem;
   line-height: 1.2;
+}
+
+.ts-song-album-title {
+  font-size: 1em;
 }
 
 .ts-quote {
