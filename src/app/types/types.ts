@@ -39,4 +39,10 @@ export interface MatchResult {
   score: number;
   quote?: string;
   isExactMatch?: boolean;
+  reaction: Reaction;
+}
+
+export interface Reaction {
+  score: number;
+  quote: string;
 }

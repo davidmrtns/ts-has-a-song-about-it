@@ -1,4 +1,4 @@
-import { AlbumTitle, SongScenario } from '../types/types';
+import { SongScenario } from '../types/types';
 import { ALBUMS } from './albums';
 
 export const SONG_SCENARIOS: SongScenario[] = [

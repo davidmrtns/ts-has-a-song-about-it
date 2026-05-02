@@ -46,7 +46,7 @@
       <div class="ts-result" [class.ts-result--visible]="matchResult !== undefined">
         @if (matchResult) {
           <div class="ts-match">
-            <div class="ts-match-label">she wrote this for you</div>
+            <div class="ts-match-label">{{ matchResult.reaction.quote }}</div>
             <div class="ts-vinyl">
               <img
                 src="{{ matchResult.song.album.artwork }}"

@@ -5,6 +5,7 @@ import { MatchResult } from '../types/types';
 import { SONG_SCENARIOS } from '../data/song-scenarios';
 import { synonyms } from '../dictionaries/synonyms';
 import { abbreviations } from '../dictionaries/abbreviations';
+import { MATCH_REACTIONS } from '../data/match-reactions';
 
 @Injectable({
   providedIn: 'root',
@@ -32,6 +33,20 @@ export class Matcher {
     return SONGS.find((song) => song.title === title) || null;
   }
 
+  private findReaction(score: number) {
+    const reactions = MATCH_REACTIONS.filter((r) => r.score === score);
+
+    if (reactions.length === 0) {
+      return {
+        score,
+        quote: 'Interesting combination of tags!',
+      };
+    }
+
+    const randomIndex = Math.floor(Math.random() * reactions.length);
+    return reactions[randomIndex];
+  }
+
   public match(input: string): MatchResult | null {
     const { normalizedInput, normalizedTokens } = this.preprocess(input);
 
@@ -54,6 +69,7 @@ export class Matcher {
           quote: scenario.quote,
           score: matches.length,
           isExactMatch: true,
+          reaction: { score: 999, quote: 'Wow! That was specific.' },
         };
       }
     }
@@ -76,9 +92,10 @@ export class Matcher {
 
     for (const song of SONGS) {
       const score = song.tags.filter((tag) => detectedTags.has(tag)).length;
+      const reaction = this.findReaction(score);
 
       if (!bestMatch || score > bestMatch.score) {
-        bestMatch = { song, score };
+        bestMatch = { song, score, reaction };
       }
     }
 
