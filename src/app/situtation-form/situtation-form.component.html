@@ -9,3 +9,13 @@
 
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
+<div>
+  <h2>Match Result</h2>
+  @if (matchResult) {
+    <p><strong>Song:</strong> {{ matchResult.song.title }}</p>
+    <p><strong>Quote:</strong> {{ matchResult.quote }}</p>
+  } @else {
+    <p>No match found.</p>
+  }
+</div>

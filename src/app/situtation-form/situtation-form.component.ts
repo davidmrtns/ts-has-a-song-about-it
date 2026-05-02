@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Matcher } from '../services/matcher.service';
+import { MatchResult } from '../types/types';
 
 @Component({
   selector: 'app-situtation-form',
@@ -10,6 +11,7 @@ import { Matcher } from '../services/matcher.service';
 })
 export class SitutationForm {
   situationForm!: FormGroup;
+  matchResult: MatchResult | null = null;
 
   constructor(
     private fb: FormBuilder,
@@ -29,8 +31,8 @@ export class SitutationForm {
   onSubmit() {
     if (this.situationForm.valid) {
       console.log('Submitted Situation:', this.situationForm.value);
-      const matchResult = this.matcher.match(this.situationForm.value.situation);
-      console.log('Match Result:', matchResult);
+      this.matchResult = this.matcher.match(this.situationForm.value.situation);
+      console.log('Match Result:', this.matchResult);
     } else {
       console.log('Form is invalid');
     }
