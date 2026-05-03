@@ -19,4 +19,9 @@ export type Tag =
   | 'revenge'
   | 'forgiveness'
   | 'growth'
-  | 'reflection';
+  | 'reflection'
+  | 'regret'
+  | 'nostalgia'
+  | 'what ifs'
+  | 'youth'
+  | 'longing';

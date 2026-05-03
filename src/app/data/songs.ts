@@ -37,4 +37,14 @@ export const SONGS: Song[] = [
     album: ALBUMS['Speak Now'],
     tags: ['unrequited', 'yearning', 'waiting', 'idealization', 'delusion', 'confession'],
   },
+  {
+    title: 'the 1',
+    album: ALBUMS['Folklore'],
+    tags: ['regret', 'nostalgia', 'what ifs'],
+  },
+  {
+    title: 'seven',
+    album: ALBUMS['Folklore'],
+    tags: ['love', 'youth', 'nostalgia', 'longing'],
+  },
 ];

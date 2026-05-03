@@ -38,4 +38,42 @@ export const SONG_SCENARIOS: SongScenario[] = [
     minMatches: 1,
     quote: 'you are not the exception',
   },
+  {
+    songTitle: 'the 1',
+    album: ALBUMS['Folklore'],
+    triggers: [
+      // PT
+      'como seria',
+      'tivesse dado certo',
+      'se funcionasse',
+      'se fosse ele',
+      'se tivesse',
+      'dado certo',
+      // EN
+      'what if',
+      'it had been',
+      'it was him',
+      'it worked out',
+      'it had worked out',
+      'he was the one',
+      'she was the one',
+      'it was the one',
+    ],
+    minMatches: 3,
+    quote: "but it would've been fun if you would've been the one",
+  },
+  {
+    songTitle: 'seven',
+    album: ALBUMS['Folklore'],
+    triggers: [
+      // PT
+      'lua',
+      'saturno',
+      // EN
+      'moon',
+      'saturn',
+    ],
+    minMatches: 2,
+    quote: 'love you to the moon and to Saturn',
+  },
 ];
