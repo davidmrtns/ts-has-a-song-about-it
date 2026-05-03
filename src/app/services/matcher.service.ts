@@ -69,7 +69,7 @@ export class Matcher {
           quote: scenario.quote,
           score: matches.length,
           isExactMatch: true,
-          reaction: { score: 999, quote: 'Wow! That was specific.' },
+          reaction: this.findReaction(999),
         };
       }
     }

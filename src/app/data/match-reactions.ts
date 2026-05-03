@@ -17,4 +17,12 @@ export const MATCH_REACTIONS: Reaction[] = [
     score: 10,
     quote: 'How does it feel to be one of her muses?',
   },
+  {
+    score: 999,
+    quote: 'Are you sure you are not Taylor Swift herself?',
+  },
+  {
+    score: 999,
+    quote: 'Wow! That was specific.',
+  },
 ];
