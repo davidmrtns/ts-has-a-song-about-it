@@ -20,13 +20,21 @@ export class Matcher {
     const tokens = normalized.split(/\s+/).map((token) => {
       const expanded = abbreviations[token] || token;
       const translated = synonyms[expanded] || expanded;
-      return translated;
+      const singular = this.singularize(translated);
+      return singular;
     });
 
     return {
       normalizedInput: tokens.join(' '), // reconstructs the input
       normalizedTokens: tokens,
     };
+  }
+
+  private singularize(token: string): string {
+    if (token.endsWith('s') && token.length > 3) {
+      return token.slice(0, -1);
+    }
+    return token;
   }
 
   private findSong(title: string) {
