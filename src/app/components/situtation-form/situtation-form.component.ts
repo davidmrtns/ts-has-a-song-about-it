@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Matcher } from '../services/matcher.service';
-import { MatchResult } from '../types/types';
+import { Matcher } from '@services/matcher.service';
+import { MatchResult } from '@app-types';
 
 @Component({
   selector: 'app-situtation-form',

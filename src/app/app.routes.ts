@@ -1,4 +1,4 @@
 import { Routes } from '@angular/router';
-import { SitutationForm } from './situtation-form/situtation-form.component';
+import { HomepageComponent } from '@pages/homepage';
 
-export const routes: Routes = [{ path: '', component: SitutationForm, pathMatch: 'full' }];
+export const routes: Routes = [{ path: '', component: HomepageComponent, pathMatch: 'full' }];

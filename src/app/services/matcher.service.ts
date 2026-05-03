@@ -1,11 +1,7 @@
 import { Injectable } from '@angular/core';
-import { dictionary } from '../dictionaries/dictionaries';
-import { SONGS } from '../data/songs';
-import { MatchResult } from '../types/types';
-import { SONG_SCENARIOS } from '../data/song-scenarios';
-import { synonyms } from '../dictionaries/synonyms';
-import { abbreviations } from '../dictionaries/abbreviations';
-import { MATCH_REACTIONS } from '../data/match-reactions';
+import { dictionary, synonyms, abbreviations } from '@dictionaries';
+import { SONGS, SONG_SCENARIOS, MATCH_REACTIONS } from '@data';
+import { MatchResult } from '@app-types';
 
 @Injectable({
   providedIn: 'root',
