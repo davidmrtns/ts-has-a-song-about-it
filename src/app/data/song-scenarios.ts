@@ -13,6 +13,7 @@ export const SONG_SCENARIOS: SongScenario[] = [
       'nao me quer',
       // EN
       'message',
+      'looking for',
       'waiting',
       'no reply',
       'doesnt reply',

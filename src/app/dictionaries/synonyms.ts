@@ -14,6 +14,7 @@ export const synonyms: Record<string, string> = {
   empoderamento: 'empowerment',
   espera: 'waiting',
   ghosted: 'ghosted',
+  mensagen: 'message',
   trocou: 'cheating',
   traiu: 'cheating',
   midia: 'media',
