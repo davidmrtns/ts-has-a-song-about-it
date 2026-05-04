@@ -1,7 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Matcher } from '@services/matcher.service';
-import { MatchResult } from '@app-types';
 
 @Component({
   selector: 'app-situtation-form',
@@ -9,14 +7,11 @@ import { MatchResult } from '@app-types';
   templateUrl: './situtation-form.component.html',
   styleUrl: './situtation-form.component.scss',
 })
-export class SitutationForm {
+export class SitutationFormComponent {
+  @Output() submitSituation = new EventEmitter<string>();
   situationForm!: FormGroup;
-  matchResult?: MatchResult | null = undefined;
 
-  constructor(
-    private fb: FormBuilder,
-    private matcher: Matcher,
-  ) {}
+  constructor(private fb: FormBuilder) {}
 
   ngOnInit() {
     this.situationForm = this.fb.group({
@@ -30,9 +25,8 @@ export class SitutationForm {
 
   onSubmit() {
     if (this.situationForm.valid) {
-      console.log('Submitted Situation:', this.situationForm.value);
-      this.matchResult = this.matcher.match(this.situationForm.value.situation);
-      console.log('Match Result:', this.matchResult);
+      const formValue = this.situationForm.value.situation;
+      this.submitSituation.emit(formValue);
     } else {
       console.log('Form is invalid');
     }

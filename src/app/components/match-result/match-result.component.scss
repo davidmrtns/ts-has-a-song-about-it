@@ -1,0 +1,179 @@
+// ─── Result ───────────────────────────────────────────────────────────────────
+.ts-result {
+  opacity: 0;
+  transform: translateY(8px);
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease;
+
+  &--visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ts-match {
+  background: rgba(255, 252, 245, 0.85);
+  border: 1px solid var(--ts-border);
+  border-radius: 2px;
+  padding: 2.25rem 2.25rem 1.75rem;
+  text-align: center;
+  position: relative;
+  box-shadow:
+    0 1px 0 rgba(184, 148, 63, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+
+  // Bottom corner tapes
+  &::before,
+  &::after {
+    content: '';
+    position: absolute;
+    width: 36px;
+    height: 12px;
+    background: rgba(212, 170, 90, 0.28);
+    border: 1px solid rgba(184, 148, 63, 0.22);
+    border-radius: 1px;
+  }
+  &::before {
+    bottom: -6px;
+    left: 20px;
+    transform: rotate(1.5deg);
+  }
+  &::after {
+    bottom: -6px;
+    right: 20px;
+    transform: rotate(-1.5deg);
+  }
+}
+
+.ts-match-label {
+  font-family: 'Dancing Script', cursive;
+  font-size: 0.9rem;
+  color: var(--ts-gold);
+  letter-spacing: 0.06em;
+  margin-bottom: 1.25rem;
+}
+
+.ts-vinyl {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  // vinyl groove rings via radial-gradient
+  background: radial-gradient(
+    circle at center,
+    #1a1008 0%,
+    #1a1008 22%,
+    #2c1f14 24%,
+    #2c1f14 36%,
+    #1a1008 38%,
+    #1a1008 50%,
+    #2c1f14 52%,
+    #2c1f14 62%,
+    #1a1008 64%
+  );
+  border: 3px solid var(--ts-red);
+  margin: 0 auto 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: vinyl-spin 6s linear infinite;
+  box-shadow: 0 4px 14px rgba(139, 26, 26, 0.28);
+  position: relative;
+  overflow: hidden;
+}
+
+.ts-album-artwork {
+  width: 76%;
+  height: 76%;
+  border-radius: 50%;
+  object-fit: cover;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.ts-vinyl-inner {
+  color: var(--ts-gold-light);
+  font-size: 1.4rem;
+}
+
+@keyframes vinyl-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.ts-song-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 5vw, 2.1rem);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--ts-red);
+  margin: 0 0 1.25rem;
+  line-height: 1.2;
+}
+
+.ts-song-album-title {
+  font-size: 1em;
+}
+
+.ts-quote {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1rem;
+  color: var(--ts-ink-muted);
+  line-height: 1.75;
+  margin: 0 0 1.25rem;
+  padding: 0 0.5rem;
+  border: none;
+  position: relative;
+}
+
+.ts-quote-mark {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--ts-gold);
+  line-height: 0;
+  vertical-align: -0.35em;
+  opacity: 0.7;
+}
+
+.ts-match-footer {
+  font-family: 'Dancing Script', cursive;
+  font-size: 0.85rem;
+  color: var(--ts-gold);
+  letter-spacing: 0.08em;
+  margin-top: 0.5rem;
+}
+
+// ─── No Match ─────────────────────────────────────────────────────────────────
+.ts-no-match {
+  text-align: center;
+  padding: 2rem;
+  border: 1px dashed var(--ts-border);
+  border-radius: 2px;
+
+  p {
+    font-family: 'Lora', serif;
+    font-style: italic;
+    color: var(--ts-ink-muted);
+    font-size: 1rem;
+    margin: 0.75rem 0 0;
+  }
+}
+
+.ts-no-match-icon {
+  color: var(--ts-gold);
+  font-size: 1.25rem;
+  opacity: 0.5;
+}
+
+@media (max-width: 480px) {
+  .ts-match {
+    padding: 1.5rem 1.25rem;
+  }
+}

@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SitutationFormComponent } from './situtation-form.component';
+import { MainHeaderComponent } from './main-header.component';
 
-describe('SitutationForm', () => {
-  let component: SitutationFormComponent;
-  let fixture: ComponentFixture<SitutationFormComponent>;
+describe('MainHeaderComponent', () => {
+  let component: MainHeaderComponent;
+  let fixture: ComponentFixture<MainHeaderComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SitutationFormComponent],
+      imports: [MainHeaderComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SitutationFormComponent);
+    fixture = TestBed.createComponent(MainHeaderComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

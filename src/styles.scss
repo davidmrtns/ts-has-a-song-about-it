@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+// ─── Fonts ────────────────────────────────────────────────────────────────────
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Lora:ital,wght@0,400;1,400&family=Dancing+Script:wght@600&display=swap');
+
+// ─── Variables ────────────────────────────────────────────────────────────────
+$ts-cream: #faf6ef;
+$ts-parchment: #f0e8d6;
+$ts-gold: #b8943f;
+$ts-gold-light: #d4aa5a;
+$ts-red: #8b1a1a;
+$ts-red-muted: #a63232;
+$ts-ink: #2c1f14;
+$ts-ink-muted: #6b4f3a;
+$ts-border: rgba(184, 148, 63, 0.35);
+
+:root {
+  --ts-cream: #faf6ef;
+  --ts-parchment: #f0e8d6;
+  --ts-gold: #b8943f;
+  --ts-gold-light: #d4aa5a;
+  --ts-red: #8b1a1a;
+  --ts-red-muted: #a63232;
+  --ts-ink: #2c1f14;
+  --ts-ink-muted: #6b4f3a;
+  --ts-border: rgba(184, 148, 63, 0.35);
+}

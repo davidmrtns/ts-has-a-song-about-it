@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SitutationFormComponent } from './situtation-form.component';
+import { MatchResultComponent } from './match-result.component';
 
-describe('SitutationForm', () => {
-  let component: SitutationFormComponent;
-  let fixture: ComponentFixture<SitutationFormComponent>;
+describe('MatchResultComponent', () => {
+  let component: MatchResultComponent;
+  let fixture: ComponentFixture<MatchResultComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SitutationFormComponent],
+      imports: [MatchResultComponent],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(SitutationFormComponent);
+    fixture = TestBed.createComponent(MatchResultComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

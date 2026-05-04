@@ -6,7 +6,7 @@ import { MatchResult } from '@app-types';
 @Injectable({
   providedIn: 'root',
 })
-export class Matcher {
+export class MatcherService {
   private preprocess(input: string): { normalizedInput: string; normalizedTokens: string[] } {
     const normalized = input
       .toLowerCase()

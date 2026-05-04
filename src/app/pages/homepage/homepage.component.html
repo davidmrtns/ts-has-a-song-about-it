@@ -1,1 +1,8 @@
-<app-situtation-form></app-situtation-form>
+<div class="ts-wrapper">
+  <app-main-header></app-main-header>
+  <main class="ts-main">
+    <app-situtation-form (submitSituation)="match($event)"></app-situtation-form>
+    <app-match-result [matchResult]="matchResult"></app-match-result>
+  </main>
+  <app-main-footer></app-main-footer>
+</div>

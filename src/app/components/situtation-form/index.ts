@@ -1,1 +1,1 @@
-export { SitutationForm } from './situtation-form.component';
+export { SitutationFormComponent as SitutationForm } from './situtation-form.component';

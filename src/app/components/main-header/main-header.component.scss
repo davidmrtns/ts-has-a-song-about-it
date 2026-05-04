@@ -1,0 +1,90 @@
+.ts-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.ts-sparkle {
+  position: absolute;
+  color: var(--ts-gold);
+  font-size: 1rem;
+  opacity: 0.7;
+  animation: sparkle-float 4s ease-in-out infinite;
+
+  &--1 {
+    top: 0;
+    left: 5%;
+    animation-delay: 0s;
+    font-size: 0.7rem;
+  }
+  &--2 {
+    top: 20px;
+    right: 8%;
+    animation-delay: 1.3s;
+    font-size: 1rem;
+  }
+  &--3 {
+    top: 55px;
+    left: 15%;
+    animation-delay: 2.6s;
+    font-size: 0.55rem;
+  }
+}
+
+@keyframes sparkle-float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-6px) rotate(20deg);
+    opacity: 0.9;
+  }
+}
+
+.ts-era-label {
+  font-family: 'Dancing Script', cursive;
+  font-size: 1.1rem;
+  color: var(--ts-gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 0.25rem;
+}
+
+.ts-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: clamp(2.8rem, 8vw, 4.5rem);
+  font-weight: 700;
+  font-style: italic;
+  color: var(--ts-red);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin: 0 0 0.6rem;
+  text-shadow: 2px 2px 0 rgba(139, 26, 26, 0.1);
+}
+
+.ts-subtitle {
+  font-family: 'Lora', serif;
+  font-style: italic;
+  font-size: 1.75rem;
+  color: var(--ts-ink-muted);
+  margin: 0 0 1.5rem;
+  letter-spacing: 0.01em;
+}
+
+.ts-divider {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--ts-gold);
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+
+  &::before,
+  &::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--ts-gold-light), transparent);
+  }
+}

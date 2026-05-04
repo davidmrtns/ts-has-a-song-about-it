@@ -1,0 +1,31 @@
+@if (matchResult !== undefined) {
+  <div class="ts-result" [class.ts-result--visible]="matchResult !== undefined">
+    @if (matchResult) {
+      <div class="ts-match">
+        <div class="ts-match-label">{{ matchResult.reaction.quote }}</div>
+        <div class="ts-vinyl">
+          <img
+            src="{{ matchResult.song.album.artwork }}"
+            alt="{{ matchResult.song.album.title }} album artwork"
+            class="ts-album-artwork"
+          />
+        </div>
+        <h2 class="ts-song-title">{{ matchResult.song.title }}</h2>
+        <h2 class="ts-song-album-title">{{ matchResult.song.album.title }}</h2>
+        @if (matchResult.quote) {
+          <blockquote class="ts-quote">
+            <span class="ts-quote-mark">"</span>
+            {{ matchResult.quote }}
+            <span class="ts-quote-mark">"</span>
+          </blockquote>
+        }
+        <div class="ts-match-footer">told you so ✦</div>
+      </div>
+    } @else {
+      <div class="ts-no-match">
+        <div class="ts-no-match-icon">✦</div>
+        <p>No match found — but maybe she just hasn't written it <em>yet.</em></p>
+      </div>
+    }
+  </div>
+}
