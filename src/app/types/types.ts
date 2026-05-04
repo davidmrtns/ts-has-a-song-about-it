@@ -1,4 +1,4 @@
-import { Tag } from '../dictionaries/tags';
+import { Tag } from './tags';
 
 export enum AlbumTitle {
   DEBUT = 'Taylor Swift',

@@ -1,4 +1,4 @@
-import { Tag } from './tags';
+import { Tag } from '@app-types';
 
 /**
  * Interpretation dictionary mapping words/phrases to thematic tags.
